@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Web Demo Suite" parallel="tests">
+  <listeners>
+    <listener class-name="com.quantum.listeners.QuantumReportiumListener"/>
+  </listeners>
+  <test name="Android Test">
+    <method-selectors>
+      <method-selector>
+        <script language="beanshell">
+          <![CDATA[testngMethod.getMethodName().equalsIgnoreCase("Locators with Wikipedia")]]>
+        </script>
+      </method-selector>
+    </method-selectors>
+    <parameter name="driver.capabilities.model" value="Galaxy.*"/>
+    <classes>
+      <class name="com.qmetry.qaf.automation.step.client.text.BDDTestFactory"/>
+    </classes>
+  </test> <!-- Android Test -->
+  <test name="iOS Test">
+    <method-selectors>
+      <method-selector>
+        <script language="beanshell">
+          <![CDATA[testngMethod.getMethodName().equalsIgnoreCase("Locators with Wikipedia")]]>
+        </script>
+      </method-selector>
+    </method-selectors>
+    <parameter name="driver.capabilities.model" value="iPhone.*"/>
+    <classes>
+      <class name="com.qmetry.qaf.automation.step.client.text.BDDTestFactory"/>
+    </classes>
+  </test> <!-- iOS Test -->
+</suite> <!-- Web Demo Suite -->
